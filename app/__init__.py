@@ -31,6 +31,9 @@ def create_app(config_name):
 
     # Will add the views and forms
 
+    from .requests import configure_request
+    configure_request(app)
+    
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
     

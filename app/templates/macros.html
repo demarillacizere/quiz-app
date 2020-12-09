@@ -1,0 +1,13 @@
+{% macro displayQuestions(questions) %}
+    {% for question in questions %}
+    <div class='col-md-8'>
+        <div>
+            <span>{{ question.question}}</span><br>
+            {% for ans in question.answers%}
+            <span>{{counter}}{{ans}}</span><br>
+            {% endfor %}
+        </div><br>
+    </div>
+    {% endfor %}
+
+{% endmacro %}
