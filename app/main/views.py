@@ -7,11 +7,10 @@ from ..requests import get_questions
 @main.route('/')
 def index():
     title="Quiz Game"
-    counter=1
     return render_template('index.html')
 
 @main.route("/category/<id>")
+@login_required
 def category(id):
     questions=get_questions(id)
-
     return render_template("category.html",id=id, questions=questions)

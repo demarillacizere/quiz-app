@@ -13,6 +13,7 @@ class User(UserMixin, db.Model):
     fullname = db.Column(db.String(255))
     email = db.Column(db.String(255), unique = True, index = True)
     pass_secure = db.Column(db.String(255))
+    marks = db.Column(db.Integer, default = 0)
 
     def save_user(self):
         '''
@@ -40,8 +41,11 @@ class Question:
     Country class to define country Objects
     '''
 
-    def __init__(self,question,correct_answer,incorrect_answers,answers):
+    def __init__(self,id,question,correct_answer,incorrect_answers,answers,all_answers):
+        self.id=id
         self.question= question
         self.correct_answer = correct_answer
         self.incorrect_answers = incorrect_answers
         self.answers = answers
+        self.all_answers = all_answers
+

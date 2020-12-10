@@ -1,11 +1,89 @@
 {% extends 'base.html'%}
 {% import 'macros.html' as macro%}
+{% import 'bootstrap/wtf.html' as wtf %}
 
 {% block content %}
-
-<div class='container'>
-    <span><a href="{{url_for('main.category',id=12)}}">Music</a></span><br>
-    <span><a href="{{url_for('main.category',id=22)}}">Geography</a></span><br> 
-<div
-
-{% endblock%}
+<div class="container-fluid">
+  <header class="text-center">
+    <h1>Welcome To The Ultimate Quiz App</h1>
+    <cite>
+      "Education without application is just entertainment".
+      <p class="blockquote-footer">_Tim Sanders</p>
+    </cite>
+    <p>Ready to put your skills to test? Get your Trivia on!</p>
+  </header>
+  <div class="row">
+    <div class="col-sm-6">
+          <!-- card one -->
+      <div class="panel panel-default" class="card ">
+        <div class="panel-heading">
+          <h3 class="card-title">Books & Literature</h3><hr>
+          <img src="../static/2.jpg" width = 200 height= 200 alt="books"><p class="card-text">This is the Literature trivia category.</p>
+          <a href="{{url_for('main.category',id=10)}}" class="btn btn-sm">Quiz me!</a>
+        </div>
+      </div>
+      <!-- card two -->
+      <div class="panel panel-default" class="card">
+        <div class="panel-heading">
+          <h3 class="card-title"> Films </h3><hr>
+          <img src="../static/film.jpg" width = 200 height= 200 alt="books"><p class="card-text">This is the Films trivia category.</p>
+          <a href="{{url_for('main.category',id=11)}}" class="btn btn-sm">Quiz me!</a>
+        </div>
+      </div>
+      <!-- card three -->
+      <div class="panel panel-default" class="card">
+        <div class="panel-heading">
+          <h3 class="card-title">Music </h3> <hr>
+          <img src="../static/ic.jpg" width = 200 height= 200 alt="books"><p class="card-text">This is the Music trivia category.</p>
+          <a href="{{url_for('main.category',id=12)}}" class="btn btn-sm">Quiz me!</a>
+        </div>
+      </div>
+      <!-- card four -->
+      <div class="panel panel-default" class="card">
+        <div class="panel-heading">
+          <h3 class="card-title">Television shows</h3> <hr>
+          <img src="../static/flix.jpg" width = 200 height= 200 alt="books"><p class="card-text">This is the Tv shows trivia category.</p>
+          <a href="{{url_for('main.category',id=14)}}" id="one" class="btn btn-sm">Quiz me!</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <!-- card five -->
+      <div class="panel panel-default" class="card">
+        <div class="panel-heading">
+          <h3 class="card-title">Sports</h3> <hr>
+          <img src="../static/sports.jpg" width = 200 height= 200 alt="books"><p class="card-text">This is the Sports trivia category.</p>
+          <a href="{{url_for('main.category',id=21)}}" id="one" class="btn btn-sm">Quiz me!</a>
+        </div>
+      </div>
+      <!-- card six -->
+      <div class="panel panel-default" class="card">
+        <div class="panel-heading">
+          <h3 class="card-title">Science & Nature</h3> <hr>
+          <img src="../static/sce.jpg" width = 200 height= 200 alt="books"><p class="card-text">This is the Science trivia category.</p>
+          <a href="{{url_for('main.category',id=17)}}" id="one" class="btn btn-sm">Quiz me!</a>
+        </div>
+      </div>
+      <!-- card seven -->
+      <div class="panel panel-default" class="card">
+        <div class="panel-heading">
+          <h3 class="card-title">History</h3> <hr>
+          <img src="../static/hist.jpg" width = 200 height= 200 alt="books"><p class="card-text">This is the History trivia category.</p>
+          <a href="{{url_for('main.category',id=23)}}" id="one" class="btn btn-sm">Quiz me!</a>
+        </div>
+      </div>
+      <!-- card eight -->
+      <div class="panel panel-default" class="card">
+        <div class="panel-heading">
+          <h3 class="card-title">Geography</h3> <hr>
+          <img src="../static/geo.jpg" width = 200 height= 200 alt="books"><p class="card-text">This is the Geography trivia category.</p>
+          <a href="{{url_for('main.category',id=22)}}" id="one" class="btn btn-sm">Quiz me!</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <footer class="text-center" >Copyright 2020 |Quiz-App</footer>
+  </div>
+</div>
+{% endblock %}

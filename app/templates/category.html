@@ -5,8 +5,13 @@
 
 <div class='container'>
     <h2 class='text-center'> Questions</h2><br>
-<div class='row'>{{ macro.displayQuestions(questions)}}</div>
-
+<div class='row'>{{ macro.displayQuestions(questions)}}
+    <div class='col-md-4'>
+        <b>Current score : <span class='usersmarks' id='{{current_user.marks}}'>{{current_user.marks}}</span></b>
+    </div>
+</div>
+<input type='submit' id='b1' class='btn' style='color:white;' onclick='getanswers()'><br><br>
+<b id='UserAnswers' style='color:blue;'></b><br><br>
 </div>
 
 {% endblock%}
