@@ -1,0 +1,11 @@
+{% extends 'base.html'%}
+{% import 'macros.html' as macro%}
+
+{% block content %}
+
+<div class='container'>
+    <h2 class='text-center'> Leaderboard</h2><br>
+    <div class='row'>{{ macro.displayUsers(users)}}</div>
+</div>
+
+{% endblock%}

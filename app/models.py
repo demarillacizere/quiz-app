@@ -35,7 +35,7 @@ class User(UserMixin, db.Model):
 
 
     def __repr__(self):
-        return f'User {self.username}'
+        return f'User {self.fullname}'
 class Question:    
     '''
     Country class to define country Objects
@@ -49,3 +49,8 @@ class Question:
         self.answers = answers
         self.all_answers = all_answers
 
+class Leaderboard:
+    def __init__(self,id,name,marks):
+        self.id=id
+        self.name=name
+        self.marks=marks

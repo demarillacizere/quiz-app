@@ -20,3 +20,11 @@
     </div>
     {% endfor %}
 {% endmacro %}
+
+{% macro displayUsers(users) %}
+    {% for user in users %}
+    <span>{{user.id}}. </span>
+        <span>{{ user.name| capitalize}}</span>
+        <span>{{user.marks}}</span><br>
+    {% endfor %}
+{% endmacro %}
