@@ -68,7 +68,7 @@
             });
             return response.json();
             }
-            postData('http://127.0.0.1:5000/save',{marks:rank,id:'{{current_user.id}}'})
+            postData('http://d-quiz-game.herokuapp.com/save',{marks:rank,id:'{{current_user.id}}'})
             async function postData(url = '', data = {}) {
   // Default options are marked with *
   const response = await fetch(url, {
