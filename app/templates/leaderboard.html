@@ -1,11 +1,37 @@
 {% extends 'base.html'%}
 {% import 'macros.html' as macro%}
-
-{% block content %}
-
-<div class='container'>
-    <h2 class='text-center'> Leaderboard</h2><br>
-    <div class='row'>{{ macro.displayUsers(users)}}</div>
-</div>
-
-{% endblock%}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        {%block styles%}
+        {{ super() }}
+        <style>
+            body{
+                background-image:linear-gradient(to right, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../static/qq.jpg');
+                background-size:cover;
+                background-repeat:no-repeat;
+                color: white;
+            }
+            h2{
+            font-family: 'Poiret One', cursive;
+            font-weight: bolder;
+            font-size: 2.5em;
+            text-decoration: underline;
+            }
+            body{
+                height: 100vh;
+            }
+        </style>
+        {% endblock %}
+    </head>
+    <body>
+        {% block content %}
+        <div class='container'>
+            <h2 class='text-center'> Leaderboard</h2><br>
+            <div class='row'>{{ macro.displayUsers(users)}}</div>
+        </div>
+        {% endblock%}
+    </body> 
+</html>

@@ -36,16 +36,39 @@
                                 counter+=1
                             }
                             }
-                            document.getElementById('UserAnswers').innerHTML+='Q' + e[i].name + '. Your answer was '+ e[i].value +'<br>';
+                            document.getElementById('UserAnswers').innerHTML+='Q' + e[i].name + '. Your answer was '+ e[i].value +'<br>'+'<br>';
                     }
                 }
             }
-            console.log(score);
             document.getElementById('UserAnswers').innerHTML+='You got ' + counter + ' out of 5 correct answers' + '<br>';
+            if(counter==5){
+                document.getElementById('UserAnswers').innerHTML+='Excellent! You won <br>';
+            }
+            else if(counter<5 && counter>3){
+                document.getElementById('UserAnswers').innerHTML+='Good job! <br>';
+            }
+            else{
+                document.getElementById('UserAnswers').innerHTML+='You need to revise more!<br>';
+            }
             var grade= document.getElementsByClassName('usersmarks')[0];
             var rank=parseInt(grade.innerHTML) + score
             document.getElementsByClassName('usersmarks')[0].innerHTML=rank;
-            
+            async function postData(url = '', data = {}) {
+            const response = await fetch(url, {
+                method: 'POST',
+                mode: 'cors',
+                cache: 'no-cache',
+                credentials: 'same-origin',
+                headers: {
+                'Content-Type': 'application/json'
+                },
+                redirect: 'follow',
+                referrerPolicy: 'no-referrer',
+                body: JSON.stringify(data) 
+            });
+            return response.json();
+            }
+            postData('http://127.0.0.1:5000/save',{marks:rank,id:'{{current_user.id}}'})
             async function postData(url = '', data = {}) {
   // Default options are marked with *
   const response = await fetch(url, {
@@ -65,13 +88,12 @@
 }
 postData('http://127.0.0.1:5000/save',{marks:rank,id:'{{current_user.id}}'})
             }
-
-
         </script>
         <style>
         header,h3{
             font-family: 'Poiret One', cursive;
             font-weight:bolder;
+            color: black;
         }
         #nav{
             background-color: rgba(4, 1, 22, 0.966);
@@ -97,8 +119,12 @@ postData('http://127.0.0.1:5000/save',{marks:rank,id:'{{current_user.id}}'})
         body{
             font-weight: bold;
             background-color:lightgrey;
+            background-image:linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../static/qq.jpg');
+            background-size:cover;
+            background-repeat:no-repeat;
+            color: white;
+            background-position: fixed;
         }
-
         </style>
         {% endblock %}
     </head>

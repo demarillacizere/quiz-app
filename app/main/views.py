@@ -35,3 +35,12 @@ def show_users():
         counter=counter+1
         users.append(new_user)
     return render_template("leaderboard.html", users=users)
+@main.route('/profile/<uname>')
+def profile(uname):
+
+    user = User.get_user_by_email(uname)
+
+    if user is None:
+        abort(404)
+
+    return render_template('profile/profile.html', user = user)

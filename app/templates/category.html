@@ -1,17 +1,34 @@
 {% extends 'base.html'%}
 {% import 'macros.html' as macro%}
-
-{% block content %}
-
-<div class='container'>
-    <h2 class='text-center'> Questions</h2><br>
-<div class='row'>{{ macro.displayQuestions(questions)}}
-    <div class='col-md-4'>
-        <b>Current score : <span class='usersmarks' id='{{current_user.marks}}'>{{current_user.marks}}</span></b>
-    </div>
-</div>
-<input type='submit' id='b1' class='btn' style='color:white;' onclick='getanswers()'><br><br>
-<b id='UserAnswers' style='color:blue;'></b><br><br>
-</div>
-
-{% endblock%}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        {%block styles%}
+        {{ super() }}
+        <style>
+            h2{
+            font-family: 'Poiret One', cursive;
+            font-weight: bolder;
+            font-size: 2.5em;
+            text-decoration: underline;
+            }
+        </style>
+        {% endblock %}
+    </head>
+    <body>
+        {% block content %}
+        <div class='container'>
+            <h2 class='text-center'> Questions</h2><br>
+        <div class='row'>{{ macro.displayQuestions(questions)}}
+            <div class='col-md-4'>
+                <b>Current score : <span class='usersmarks' id='{{current_user.marks}}'>{{current_user.marks}}</span></b>
+            </div>
+        </div>
+        <input type='submit' id='b1' class='btn' style='color:white;' onclick='getanswers()'><br><br>
+        <b id='UserAnswers' style='color: white;'></b><br><br>
+        </div>
+        {% endblock%}
+    </body> 
+</html>
