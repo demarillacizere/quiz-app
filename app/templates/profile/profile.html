@@ -1,6 +1,34 @@
 {% extends 'base.html' %}
-
-{% block content %}
-    <h1>Profile Page</h1>
-    <p>{{ user.fullname}}, you have <strong>{{ user.marks }}</strong> marks</p>
-{% endblock %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        {%block styles%}
+        {{ super() }}
+        <style>
+            h1{
+            font-family: 'Poiret One', cursive;
+            font-weight: bolder;
+            font-size: 2.5em;
+            text-decoration: underline;
+            }
+            body{
+            font-weight: bold;
+            background-image:linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../../static/qq.jpg');
+            background-size:cover;
+            background-repeat:no-repeat;
+            color: white;
+            background-position: fixed;
+            height: 100vh;
+            text-align: center;
+        }
+        </style>
+        {% endblock %}
+    </head>
+    <body>
+    {% block content %}
+        <h1>Profile Page</h1>
+        <p>{{ user.fullname}}, you have <strong>{{ user.marks }}</strong> marks</p>
+    {% endblock %}
+    </body> 
+</html>
